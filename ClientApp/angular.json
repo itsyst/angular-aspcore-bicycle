@@ -129,5 +129,8 @@
       }
     }
   },
-  "defaultProject": "Bicycle"
+  "defaultProject": "Bicycle",
+  "cli": {
+    "analytics": false
+  }
 }
