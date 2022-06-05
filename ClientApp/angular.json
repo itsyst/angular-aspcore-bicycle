@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "angular_aspcore_bicycle": {
+    "Bicycle": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:application": {
@@ -69,10 +69,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "angular_aspcore_bicycle:build:production"
+              "browserTarget": "Bicycle:build:production"
             },
             "development": {
-              "browserTarget": "angular_aspcore_bicycle:build:development",
+              "browserTarget": "Bicycle:build:development",
               "proxyConfig": "proxy.conf.js"
             }
           },
@@ -81,7 +81,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "angular_aspcore_bicycle:build"
+            "browserTarget": "Bicycle:build"
           }
         },
         "test": {
@@ -129,5 +129,5 @@
       }
     }
   },
-  "defaultProject": "angular_aspcore_bicycle"
+  "defaultProject": "Bicycle"
 }

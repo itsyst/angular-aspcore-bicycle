@@ -1,6 +1,6 @@
 {
-  "name": "angular_aspcore_bicycle",
-  "version": "0.0.0",
+  "name": "Bicycle",
+  "version": "1.0.0",
   "scripts": {
     "ng": "ng",
     "prestart": "node aspnetcore-https",
@@ -8,7 +8,7 @@
     "start:windows": "ng serve --port 44428 --ssl --ssl-cert %APPDATA%\\ASP.NET\\https\\%npm_package_name%.pem --ssl-key %APPDATA%\\ASP.NET\\https\\%npm_package_name%.key",
     "start:default": "ng serve --port 44428 --ssl --ssl-cert $HOME/.aspnet/https/${npm_package_name}.pem --ssl-key $HOME/.aspnet/https/${npm_package_name}.key",
     "build": "ng build",
-    "build:ssr": "ng run angular_aspcore_bicycle:server:dev",
+    "build:ssr": "ng run Bicycle:server:dev",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },

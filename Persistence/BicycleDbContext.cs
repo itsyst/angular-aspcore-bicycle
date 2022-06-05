@@ -1,16 +1,16 @@
-using angular_aspcore_bicycle.Models;
+using Bicycle.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace angular_aspcore_bicycle.Persistence;
+namespace Bicycle.Persistence;
 
 public class BicycleDbContext : DbContext
 {
     public BicycleDbContext(DbContextOptions<BicycleDbContext> options)
     : base(options)
     {
-        
+
     }
 
-    public DbSet<Model> Models { get; set; }
-    public DbSet<Make> Makes { get; set; }
+    public DbSet<Model>? Models { get; set; }
+    public DbSet<Make>? Makes { get; set; }
 }

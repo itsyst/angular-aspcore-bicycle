@@ -2,7 +2,7 @@
 
 #nullable disable
 
-namespace angular_aspcore_bicycle.Migrations
+namespace Bicycle.Migrations
 {
     public partial class Initial : Migration
     {

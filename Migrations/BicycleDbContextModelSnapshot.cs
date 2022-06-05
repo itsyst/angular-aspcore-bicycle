@@ -3,11 +3,11 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using angular_aspcore_bicycle.Persistence;
+using Bicycle.Persistence;
 
 #nullable disable
 
-namespace angular_aspcore_bicycle.Migrations
+namespace Bicycle.Migrations
 {
     [DbContext(typeof(BicycleDbContext))]
     partial class BicycleDbContextModelSnapshot : ModelSnapshot
@@ -21,7 +21,7 @@ namespace angular_aspcore_bicycle.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
-            modelBuilder.Entity("angular_aspcore_bicycle.Models.Make", b =>
+            modelBuilder.Entity("Bicycle.Models.Make", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -39,7 +39,7 @@ namespace angular_aspcore_bicycle.Migrations
                     b.ToTable("Makes");
                 });
 
-            modelBuilder.Entity("angular_aspcore_bicycle.Models.Model", b =>
+            modelBuilder.Entity("Bicycle.Models.Model", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -62,9 +62,9 @@ namespace angular_aspcore_bicycle.Migrations
                     b.ToTable("Models");
                 });
 
-            modelBuilder.Entity("angular_aspcore_bicycle.Models.Model", b =>
+            modelBuilder.Entity("Bicycle.Models.Model", b =>
                 {
-                    b.HasOne("angular_aspcore_bicycle.Models.Make", "Make")
+                    b.HasOne("Bicycle.Models.Make", "Make")
                         .WithMany("Models")
                         .HasForeignKey("MakeId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -73,7 +73,7 @@ namespace angular_aspcore_bicycle.Migrations
                     b.Navigation("Make");
                 });
 
-            modelBuilder.Entity("angular_aspcore_bicycle.Models.Make", b =>
+            modelBuilder.Entity("Bicycle.Models.Make", b =>
                 {
                     b.Navigation("Models");
                 });

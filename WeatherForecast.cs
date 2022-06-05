@@ -1,4 +1,4 @@
-namespace angular_aspcore_bicycle;
+namespace Bicycle;
 
 public class WeatherForecast
 {

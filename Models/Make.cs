@@ -1,7 +1,7 @@
 using System.Collections.ObjectModel;
 using System.ComponentModel.DataAnnotations;
 
-namespace angular_aspcore_bicycle.Models;
+namespace Bicycle.Models;
 public class Make
 {
     [Key]

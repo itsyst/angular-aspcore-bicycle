@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-namespace angular_aspcore_bicycle.Controllers;
+namespace Bicycle.Controllers;
 
 [ApiController]
 [Route("[controller]")]
