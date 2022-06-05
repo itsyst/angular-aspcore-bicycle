@@ -1,14 +1,23 @@
 using Microsoft.EntityFrameworkCore;
-using angular_aspcore_bicycle.Persistence;
+using Bicycle.Persistence;
+using Bicycle.Interfaces;
+using Microsoft.Extensions.DependencyInjection;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
 builder.Services.AddDbContext<BicycleDbContext>(options => options
 .UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"),
 b => b.MigrationsAssembly(typeof(BicycleDbContext).Assembly.FullName)
 ).EnableSensitiveDataLogging());
+
+// Register service
+builder.Services.AddScoped(typeof(IDbInitializer), typeof(DbInitializer));
 
 var app = builder.Build();
 
@@ -28,6 +37,8 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseRouting();
 
+//Invoke function to seed database
+SeedDatabase();
 
 app.MapControllerRoute(
     name: "default",
@@ -36,3 +47,11 @@ app.MapControllerRoute(
 app.MapFallbackToFile("index.html"); ;
 
 app.Run();
+
+// Seed Database
+void SeedDatabase()
+{
+    using var scope = app.Services.CreateAsyncScope();
+    var initializer = scope.ServiceProvider.GetRequiredService<IDbInitializer>();
+    initializer.Initialize();
+}
