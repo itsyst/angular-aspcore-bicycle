@@ -1,8 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using Bicycle.Persistence;
 using Bicycle.Interfaces;
-using Microsoft.Extensions.DependencyInjection;
-
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -15,6 +13,17 @@ builder.Services.AddDbContext<BicycleDbContext>(options => options
 .UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"),
 b => b.MigrationsAssembly(typeof(BicycleDbContext).Assembly.FullName)
 ).EnableSensitiveDataLogging());
+
+//CORS Policy
+builder.Services.AddCors(opt =>
+{
+    opt.AddDefaultPolicy(builder =>
+    {
+        builder.AllowAnyOrigin()
+        .AllowAnyHeader()
+        .AllowAnyMethod();
+    });
+});
 
 // Register service
 builder.Services.AddScoped(typeof(IDbInitializer), typeof(DbInitializer));
@@ -36,6 +45,8 @@ else
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseRouting();
+app.UseCors();
+
 
 //Invoke function to seed database
 SeedDatabase();
