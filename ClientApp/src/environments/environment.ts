@@ -3,7 +3,10 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  navBarBackgroundColor: '#e3f2fd',
+  title: 'Dev Environment Heading',
+  apiMake: 'https://localhost:7157/api/makes',
 };
 
 /*
